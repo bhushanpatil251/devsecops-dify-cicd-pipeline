@@ -321,19 +321,37 @@ Deploy Application to Kubernetes
 
 # 📷 Screenshots
 
-Added screenshots for
+ screenshots for
 
-- AWS EC2 Instance
-- SSH Connection
-- Java Installation
-- Jenkins Dashboard
-- Jenkins Plugins
-- SonarQube Dashboard
-- DockerHub Credentials
-- Kubernetes Cluster
-- Pipeline Success
-- Running Pods
-- Dify Application
+## ☁️ AWS EC2
+![AWS EC2](AWS-Ec2.png)
+
+## 🔐 Installed Tools & SSH
+![Installed Tools & SSH](Installed%20tools%20&%20SSH.png)
+
+## ⚙️ Jenkins Dashboard
+![Jenkins UI](jenkinsUI.png)
+
+## 🔑 Jenkins Credentials
+![Credentials](Credentials.png)
+
+## 🔍 SonarQube Dashboard
+![SonarQube Dashboard](Sonarqube-Dashboard.png)
+
+## ☸️ Kubernetes Cluster
+![Kubernetes Cluster](Kubernetes-cluster.png)
+
+## 🚀 Jenkins Pipeline
+![Jenkins Pipeline](Jenkins-Pipeline.png)
+
+## ✅ Pipeline Success
+![Pipeline Success](Pipeline%20Success.png)
+
+## 📦 Running Pods
+![Running Pods](Running-Pods.png)
+
+## 🌐 Dify Application
+![Dify Application](Dify-Application.png)
 
 ---
 
