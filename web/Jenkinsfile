@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+    stages {
+        stage("Code Checkout") {
+            steps {
+                git(
+                    url: "https://github.com/DevOps-Playbook/Capstone-Project.git",
+                    branch: "main",
+                    credentialsId: "jenkins-git",
+                    changelog: true,
+                    poll: true
+                )
+            }
+        }
+        stage('Build & Push API Image') {
+            steps {
+                script {
+                    def imageName = "amigosnishant/dify-web-service"
+                    def imageTag = "latest"
+
+                    withCredentials([
+                        usernamePassword(
+                            credentialsId: 'dockerhub-cred-id',
+                            usernameVariable: 'DOCKER_USER',
+                            passwordVariable: 'DOCKER_PASS'
+                        )
+                    ]) {
+                        echo "Logging in to Docker Hub..."
+                        sh '''
+                            echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                        '''
+                        echo "Building Docker image from api/ folder..."
+                        sh """
+                            docker build -t ${imageName}:${imageTag} -f api/Dockerfile .
+                        """
+                        echo "Pushing Docker image to Docker Hub..."
+                        sh """
+                            docker push ${imageName}:${imageTag}
+                        """
+                        echo "Image pushed successfully: ${imageName}:${imageTag}"
+                    }
+                }
+            }
+        }
+    }
+}
