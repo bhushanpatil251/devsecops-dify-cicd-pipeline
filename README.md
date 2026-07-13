@@ -20,29 +20,31 @@ The objective of this project was to configure an end-to-end DevSecOps environme
 
 # 🏗️ Architecture
 
-(Add Architecture Diagram Here)
+> **Architecture Diagram:** *(Add your architecture image here later)*
 
-Example Flow:
-
-GitHub Repository
-        │
-        ▼
-Jenkins Pipeline
-        │
-        ├─────────────► Docker Hub Authentication
-        │
-        ├─────────────► SonarQube Code Analysis
-        │
-        ├─────────────► Trivy Security Scan
-        │
-        ├─────────────► Kubernetes Namespace Validation
-        │
-        ├─────────────► Helm Deployment
-        ▼
-Kubernetes (Minikube)
-        │
-        ▼
-Dify Application
+```text
+                    GitHub Repository
+                           │
+                           ▼
+                  Jenkins Pipeline
+                           │
+        ┌──────────────────┼──────────────────┐
+        │                  │                  │
+        ▼                  ▼                  ▼
+ Docker Hub Login    SonarQube Scan     Trivy Scan
+                           │
+                           ▼
+            Kubernetes Namespace Validation
+                           │
+                           ▼
+                  Helm Chart Deployment
+                           │
+                           ▼
+              Kubernetes (Minikube Cluster)
+                           │
+                           ▼
+                  Dify AI Application
+```
 
 ---
 
