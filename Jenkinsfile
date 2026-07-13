@@ -16,7 +16,7 @@ pipeline {
         stage("Code Checkout") {
             steps {
                 git(
-                    url: "https://github.com/bhushanpatil251/Dify-project.git",
+                    url: "https://github.com/bhushanpatil251/devsecops-dify-cicd-pipeline",
                     branch: "main",
                     credentialsId: "jenkins-git",
                     changelog: true,
